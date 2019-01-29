@@ -1,5 +1,5 @@
 {
-  "name": "context-manager",
+  "name": "rctx",
   "version": "1.0.0",
   "description": "Context tools to React Context API",
   "main": "index.js",
