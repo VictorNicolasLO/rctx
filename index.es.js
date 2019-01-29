@@ -1,11 +1,4 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var React = require('react');
-var React__default = _interopDefault(React);
+import React, { Component } from 'react';
 
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -90,7 +83,7 @@ var combineContexts = function combineContexts(contextList) {
 
         if (contexts[i]) {
           var ContextComponent = contexts[i].CtxComponent;
-          var result = React__default.createElement(
+          var result = React.createElement(
             ContextComponent,
             null,
             this.buildContexts(contexts, data, i + 1)
@@ -108,7 +101,7 @@ var combineContexts = function combineContexts(contextList) {
       }
     }]);
     return MainContextComponent;
-  }(React.Component);
+  }(Component);
 
   return MainContextComponent;
 };
@@ -134,7 +127,7 @@ var ContextComponent = function (_Component) {
       if (!this.Context) {
         return '';
       }
-      return React__default.createElement(
+      return React.createElement(
         this.Context.Provider,
         { value: this.state },
         this.props.children
@@ -142,7 +135,7 @@ var ContextComponent = function (_Component) {
     }
   }]);
   return ContextComponent;
-}(React.Component);
+}(Component);
 
 var ContextStore = function () {
   function ContextStore(defaultData) {
@@ -177,7 +170,7 @@ function createContext(ContextComponent) {
   var store = options.store;
 
 
-  var context = React__default.createContext({});
+  var context = React.createContext({});
 
   var NewCtx = function (_ContextComponent) {
     inherits(NewCtx, _ContextComponent);
@@ -214,39 +207,39 @@ function createContext(ContextComponent) {
   return { context: context, CtxComponent: NewCtx };
 }
 
-var importContexts = function importContexts(Component, contexts) {
+var importContexts = function importContexts(Component$$1, contexts) {
   var MainContextComponent = combineContexts(contexts);
   var ComponentWithContexts = function ComponentWithContexts(props) {
-    return React__default.createElement(
+    return React.createElement(
       MainContextComponent,
       null,
-      React__default.createElement(Component, props)
+      React.createElement(Component$$1, props)
     );
   };
   return ComponentWithContexts;
 };
 
-var createRender = function createRender(contexts, contextNames, Component, props) {
+var createRender = function createRender(contexts, contextNames, Component$$1, props) {
   var data = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : {};
   var i = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 0;
 
   if (contextNames[i]) {
     var name = contextNames[i];
     var ContextConsumer = contexts[name].context.Consumer;
-    return React__default.createElement(
+    return React.createElement(
       ContextConsumer,
       null,
       function (value) {
         data[name] = value;
-        return createRender(contexts, contextNames, Component, props, data, i + 1);
+        return createRender(contexts, contextNames, Component$$1, props, data, i + 1);
       }
     );
   } else {
-    return React__default.createElement(Component, _extends({}, data, props));
+    return React.createElement(Component$$1, _extends({}, data, props));
   }
 };
 
-var injectContexts = function injectContexts(Component, contexts) {
+var injectContexts = function injectContexts(Component$$1, contexts) {
   var contextNames = Object.keys(contexts);
 
   var WithContextComponent = function (_React$Component) {
@@ -257,7 +250,7 @@ var injectContexts = function injectContexts(Component, contexts) {
 
       var _this = possibleConstructorReturn(this, (WithContextComponent.__proto__ || Object.getPrototypeOf(WithContextComponent)).call(this, props));
 
-      _this.renderCreated = createRender(contexts, contextNames, Component, props);
+      _this.renderCreated = createRender(contexts, contextNames, Component$$1, props);
       return _this;
     }
 
@@ -268,15 +261,10 @@ var injectContexts = function injectContexts(Component, contexts) {
       }
     }]);
     return WithContextComponent;
-  }(React__default.Component);
+  }(React.Component);
 
   return WithContextComponent;
 };
 
-exports.combineContexts = combineContexts;
-exports.ContextComponent = ContextComponent;
-exports.ContextStore = ContextStore;
-exports.createContext = createContext;
-exports.importContexts = importContexts;
-exports.injectContexts = injectContexts;
-//# sourceMappingURL=index.js.map
+export { combineContexts, ContextComponent, ContextStore, createContext, importContexts, injectContexts };
+//# sourceMappingURL=index.es.js.map

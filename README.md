@@ -27,7 +27,7 @@ class  TestContext  extends  ContextComponent{
 		});
 	}
    }
-export  default  createContext(TestContext, { store:  new  ContextStore() });
+export  default  createContext(TestContext, { store:  new  ContextStore() /*If you want to preserve the state when component unmount*/ });
 ```
 
 ```jsx
