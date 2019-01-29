@@ -1,0 +1,27 @@
+{
+  "name": "context-manager",
+  "version": "1.0.0",
+  "description": "Context tools to React Context API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VictorNicolasLO/rctx.git"
+  },
+  "keywords": [
+    "Context",
+    "API",
+    "React"
+  ],
+  "dependencies": {
+    "react": "16.6.3"
+  },
+  "author": "Victor Nicolas Lizarraga Ochoa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VictorNicolasLO/rctx/issues"
+  },
+  "homepage": "https://github.com/VictorNicolasLO/rctx#readme"
+}
